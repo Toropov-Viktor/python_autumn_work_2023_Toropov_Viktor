@@ -1,0 +1,9 @@
+n = str(input("Введите число =  "))
+
+a = [0]*10
+for i in str(n):
+    digit = int(i)
+    a[digit] += 1
+
+for i in range(10):
+    print(i, a[i])
