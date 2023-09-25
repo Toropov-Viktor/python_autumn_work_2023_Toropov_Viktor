@@ -1,0 +1,11 @@
+lst = list()
+
+while True:
+    n = int(input("Зарплата сотрудника =  "))
+    if n == 0:
+        break
+    lst.append(n)
+print(lst)
+average = sum(lst) / len(lst)
+
+print(average)
