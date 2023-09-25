@@ -1,0 +1,6 @@
+all_string = input('Введите строку:  ')
+the_most_long_word = ''
+for word in all_string.split():
+    if len(word) > len(the_most_long_word):
+        the_most_long_word = word
+print(the_most_long_word)
