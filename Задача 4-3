@@ -1,0 +1,17 @@
+a = input().split()
+
+b = input().split()
+
+aa, bb = {}, {}
+
+for i in a:
+    if i in ('.', ',', '!', '?', ':', ';', '-', ' '):
+        continue
+    else:
+        aa[i] = aa.get(i, 0) + 1
+for i in b:
+    if i in ('.', ',', '!', '?', ':', ';', '-', ' '):
+        continue
+    else:
+        bb[i] = bb.get(i, 0) + 1
+        print(aa == bb)
