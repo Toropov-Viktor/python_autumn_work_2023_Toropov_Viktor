@@ -1,0 +1,6 @@
+student_a = set(input('Книги, которые прочитал первый ученик:  ').split(', '))
+student_b = set(input('Книги, которые прочитал второй ученик:  ').split(', '))
+
+both_students = student_a.intersection(student_b)
+
+print("Колическтво книг, которые прочитали оба ученика", len(both_students))
