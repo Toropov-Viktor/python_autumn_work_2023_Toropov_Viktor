@@ -1,0 +1,16 @@
+s = input()
+ab = 'abcdefghijklmnopqrstuvwxyz'
+nums = '1234567890'
+ds1, ds2, ds3 = set(), set(), set()
+for i in s.lower():
+    if i in ab:
+        ds1.add(i)
+for i in s.lower():
+    if i in nums:
+        ds2.add(i)
+    else:
+        if i not in nums:
+            if i not in ab:
+                ds3.add(i)
+
+print(ds1, ds2, ds3, sep='\n')
