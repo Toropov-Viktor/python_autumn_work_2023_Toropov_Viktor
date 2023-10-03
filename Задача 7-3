@@ -1,0 +1,11 @@
+n, m = (int(i) for i in input().split())
+a = [[int(i) for i in input().split()] for _ in range(n)]
+print(a)
+
+max_elem = a[0][0]
+for i in range(len(a)):
+    for j in range(len(a[i])):
+        if a[i][j] > max_elem:
+            max_elem = a[i][j]
+
+print('максимальный элемент = ', max_elem)
