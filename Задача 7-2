@@ -1,0 +1,14 @@
+def code(string, n):
+    result = ""
+    for char in string:
+        if char.isalpha():
+            base = ord('A') if char.isupper() else ord('a')
+            shifted_char = chr(((ord(char) - base + n) % 26) + base)
+            result += shifted_char
+        else:
+            result += char
+    return result
+text_to_encrypt = input()
+n = int(input())
+encrypted_text = code(text_to_encrypt, n)
+print("Зашифрованный текст:", encrypted_text)
