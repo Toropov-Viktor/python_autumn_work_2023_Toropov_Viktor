@@ -1,0 +1,15 @@
+a = input("Введите код ДНК(G,C,T,A)   ")
+
+b = list()
+
+for i in a:
+    if i == 'G':
+        b.append('C')
+    elif i == 'C':
+        b.append('G')
+    elif i == 'T':
+         b.append('A')
+    elif i == 'A':
+        b.append('T')
+
+print("Код РНК",  b)
