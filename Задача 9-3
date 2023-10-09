@@ -1,0 +1,13 @@
+s1 = input('   ')
+
+s2 = input('   ')
+
+all_vowels = set('aeiou')
+
+def vowel_set(s):
+    return all_vowels.intersection(s.lower())
+
+def same_vowels(s1, s2):
+    return vowel_set(s1) == vowel_set(s2)
+
+print (vowel_set(s1) == vowel_set(s2))
