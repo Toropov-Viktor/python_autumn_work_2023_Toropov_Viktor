@@ -1,0 +1,10 @@
+d = input('Введите текст   ')
+
+s = {}
+
+for i in d:
+    if i in s: s[i] += 1
+    else: s[i] = 1
+
+s_s = sorted(s.items(), reverse=True)[:10]
+print(sorted(s_s, key = lambda item: item[1],))
