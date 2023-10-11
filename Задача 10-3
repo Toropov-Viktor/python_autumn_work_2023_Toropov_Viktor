@@ -1,0 +1,23 @@
+import openpyxl
+wb = openpyxl.load_workbook('test.xlsx')
+
+ws1 = wb.active
+
+ws1['A1'].value = 'Иванов'
+ws1['A2'].value = 'Петров'
+ws1['A3'].value = 'Сидоров'
+ws1['A4'].value = 'Антонов'
+
+ws1['B1'].value = 100
+ws1['B2'].value = 200
+ws1['B3'].value = 300
+ws1['B4'].value = 400
+
+ws2 = wb.active
+
+ws2['A1'].value = max(ws1['B1':'B4'].value)
+ws2['A2'].value = min(ws1['B1':'B4'].value)
+ws2['A3'].value = sum(ws1['B1':'B4'].value)/4
+ws2['A4'].value = sum(ws1['B2', 'B3'].value)/2
+
+wb.save('test.xlsx')
