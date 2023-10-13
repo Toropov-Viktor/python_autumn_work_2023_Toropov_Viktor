@@ -1,0 +1,21 @@
+import datetime
+
+def free_thursday_tickets(year):
+    dates = []
+    for month in range(1, 13):  # Перебираем все месяцы от 1 до 12
+        for day in range(1, 32):  # Берем все возможные дни от 1 до 31
+            try:
+                date = datetime.date(year, month, day)
+                if date.weekday() == 3 and date.day > 14 and date.day <= 21:
+                    dates.append(date)
+            except ValueError:
+                pass  # Пропускаем некорректные даты
+
+    return dates
+
+
+year = 2023
+free_dates = free_thursday_tickets(year)
+
+for date in free_dates:
+    print(date.strftime("%d.%m.%Y"))
