@@ -1,0 +1,24 @@
+from openpyxl import Workbook
+
+data = []
+with open('data.txt', 'r') as file:
+    lines = file.readlines()
+    for line in lines:
+        line = line.strip()
+        row = line.split(',')
+        data.append(row)
+
+# Сортируем данные по компании, фамилии и имени
+data.sort(key=lambda x: (x[3], x[1], x[2]))
+
+wb = Workbook()
+sheet = wb.active
+
+for row in data:
+    sheet.append(row)
+
+total_salary = sum(float(row[4]) for row in data)
+total_row = ['', 'ИТОГО', '', '', total_salary]
+sheet.append(total_row)
+
+wb.save(filename='salaries.xlsx')
