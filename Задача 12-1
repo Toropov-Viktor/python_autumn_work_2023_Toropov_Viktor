@@ -1,0 +1,10 @@
+def find_min_max_indices(x):
+    min_value = min(x)
+    max_value = max(x)
+    min_indices = [i for i, value in enumerate(x) if value == min_value]
+    max_indices = [i for i, value in enumerate(x) if value == max_value]
+    return min_indices, max_indices
+
+x = [1, 2, 3, 4, 1, 2, 3, 4, 1, 4]
+result = find_min_max_indices(x)
+print(result)
