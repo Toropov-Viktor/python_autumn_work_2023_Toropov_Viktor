@@ -1,0 +1,11 @@
+def generate_range_numbers(input_string):
+    ranges = input_string.split(',')
+    result = []
+    for r in ranges:
+        start, end = map(int, r.split('-'))
+        result.extend(list(range(start, end+1)))
+    return result
+
+input_string = '1-2,4-4,3-6'
+a = generate_range_numbers(input_string)
+print(a)
