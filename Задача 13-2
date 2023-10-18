@@ -1,0 +1,15 @@
+def palindrome_generator():
+    number = 1
+    while True:
+        yield number
+        number += 1
+        number_str = str(number)
+        while number_str != number_str[::-1]:
+            number += 1
+            number_str = str(number)
+
+palindrome_sequence = palindrome_generator()
+
+while True:
+    print(next(palindrome_sequence), end=' ')
+    input()
