@@ -1,0 +1,16 @@
+def sequence_generator():
+    number = 1
+    while True:
+        yield number
+        if number > 0:
+            number += 1
+            number *= -1
+        elif number < 0:
+             number -= 1
+             number *= -1
+
+sequence = sequence_generator()
+
+while True:
+    print(next(sequence))
+    input()
