@@ -1,0 +1,10 @@
+def tri_2(n):
+    if n > 1:
+        print('*' * n)
+        tri_2(n - 1)
+        print('*' * n)
+    elif n == 1:
+        print('*' * n)
+
+
+tri_2(5)
