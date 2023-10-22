@@ -1,0 +1,12 @@
+import re
+
+def print_car_numbers(text):
+    regex = r"\b[A-ZА-Я]{1}\d{3}[A-ZА-Я]{2}78|\b[A-ZА-Я]{1}\d{3}[A-ZА-Я]{2}178"
+    car_numbers = re.findall(regex, text)
+    return car_numbers
+
+input_text = input("Номера автомобилей: ")
+numbers = print_car_numbers(input_text)
+print("Найденные номера автомобилей:")
+for number in numbers:
+    print(number)
