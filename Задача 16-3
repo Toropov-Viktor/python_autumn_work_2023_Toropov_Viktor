@@ -1,0 +1,14 @@
+def lowercase_result(func):
+    def wrapper():
+        original_result = func()
+        modified_result = original_result.lower()
+        return modified_result
+    return wrapper
+
+@lowercase_result
+def h():
+    return "HELLO,GOODBYE"
+
+h = lowercase_result(h)
+
+print(h())
