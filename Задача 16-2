@@ -1,0 +1,18 @@
+import re
+
+def find_positive_integers(limit, text):
+    pattern = r'\b(0|[1-9][0-9]?)\b'
+    matches = re.findall(pattern, text)
+
+    result = []
+    for match in matches:
+        if int(match) <= limit:
+            result.append(match)
+
+    return result
+
+text = input("Введите числа ")
+limit = 55
+
+matched_numbers = find_positive_integers(limit, text)
+print(matched_numbers)
