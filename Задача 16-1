@@ -1,0 +1,12 @@
+import re
+
+def create_acronym(s):
+    s = re.sub(r'\W+', ' ', s)
+    words = re.split(r'\s+', s)
+    acronym = ''.join(word[0] for word in words).upper()
+    return acronym
+
+input_string = "Институт точной механики оптики"
+
+acronym = create_acronym(input_string)
+print(acronym)
