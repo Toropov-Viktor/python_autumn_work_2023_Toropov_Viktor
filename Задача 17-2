@@ -1,0 +1,19 @@
+def uppercase_arguments(func):
+    def wrapper(*args, **kwargs):
+        upper_args = [arg.upper() if isinstance(arg, str) else arg for arg in args]
+        upper_kwargs = {key: value.upper() if isinstance(value, str) else value for key, value in kwargs.items()}
+
+        return func(*upper_args, **upper_kwargs)
+
+    return wrapper
+
+@uppercase_arguments
+def greet(name, age, message):
+    return f"{message}, {name}! You are {age} years old."
+
+
+greet = uppercase_arguments(greet)
+
+
+print(greet("John", 25, "Hello"))
+print(greet("Jane", 30, "Hi"))
