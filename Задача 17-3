@@ -1,0 +1,23 @@
+class Shape:
+    def __init__(self, colour, square):
+        self.colour = colour
+        self.square = square
+
+    def set_colour(self):
+        self.colour = "Синий"
+
+    def info_colour(self):
+        return f"цвет объекта {self.colour}"
+
+    def set_square(self):
+        self.square = 120
+
+    def info_square(self):
+        return f"цвет объекта {self.square}"
+
+a = Shape("Красный", 100)
+
+a.set_colour()
+a.set_square()
+print(a.info_colour())
+print(a.info_square())
