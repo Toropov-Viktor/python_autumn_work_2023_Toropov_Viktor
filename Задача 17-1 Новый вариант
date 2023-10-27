@@ -1,0 +1,11 @@
+import re
+
+def remove_duplicate_words(text):
+    cleaned_text = re.sub(r'\b(\w+)(\s+\1\b)+',r'\1',text)
+    return cleaned_text
+
+sentence = "Напишите программу программу, которая устраняет повторение повторение слов, т.е. результат должен быть следующим"
+
+cleaned_sentence = remove_duplicate_words(sentence)
+
+print(cleaned_sentence)
