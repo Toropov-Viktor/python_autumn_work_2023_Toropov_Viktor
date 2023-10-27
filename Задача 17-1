@@ -1,0 +1,17 @@
+import re
+
+def remove_duplicates(string):
+    words = re.findall(r'\w+|[^\w\s]', string)
+    unique_words = []
+    seen = set()
+    for word in words:
+        if word not in seen:
+            unique_words.append(word)
+            seen.add(word)
+    return ' '.join(unique_words)
+
+
+input_string = input('Введите строку: ')
+result = remove_duplicates(input_string)
+
+print('Результат:', result)
