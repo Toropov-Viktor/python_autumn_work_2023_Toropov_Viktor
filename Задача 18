@@ -1,0 +1,75 @@
+class Teachers:
+    def __init__(self, name):
+        self.name = name
+        self.homework = {}
+
+    def assign_homework(self, pupil, task):
+        self.homework[pupil.name] = {"task": task, "status": "not solved"}
+
+    def check_homework(self, pupil):
+        if pupil.name in self.homework:
+            if self.homework[pupil.name]["status"] == "solved":
+                print(f"{pupil.name}'s homework is already solved.")
+            else:
+                print(f"{self.name} is checking {pupil.name}'s homework.")
+                self.homework[pupil.name]["status"] = "solved"
+        else:
+            print(f"{pupil.name} doesn't have any assigned homework.")
+
+    def show_homework(self):
+        print(f"{self.name}'s assigned homework:")
+        for pupil, data in self.homework.items():
+            print(f"{pupil}: {data['task']} - {data['status']}")
+
+
+class Pupils:
+    def __init__(self, name):
+        self.name = name
+
+    def solve_homework(self, teacher):
+        teacher.check_homework(self)
+
+
+class Tasks:
+    def __init__(self, *info):
+        self.info = list(info)
+
+    def __getitem__(self, i):
+        return self.info[i]
+
+
+teacher = Teachers("John")
+pupil1 = Pupils("Alice")
+pupil2 = Pupils("Bob")
+
+task = Tasks('class', 'object', 'inheritance', 'polymorphism', 'encapsulation')
+
+teacher.assign_homework(pupil1, task[0])
+teacher.assign_homework(pupil2, task[0])
+pupil1.solve_homework(teacher)
+pupil2.solve_homework(teacher)
+teacher.show_homework()
+
+teacher.assign_homework(pupil1, task[1])
+teacher.assign_homework(pupil2, task[1])
+pupil1.solve_homework(teacher)
+pupil2.solve_homework(teacher)
+teacher.show_homework()
+
+teacher.assign_homework(pupil1, task[2])
+teacher.assign_homework(pupil2, task[2])
+pupil1.solve_homework(teacher)
+pupil2.solve_homework(teacher)
+teacher.show_homework()
+
+teacher.assign_homework(pupil1, task[3])
+teacher.assign_homework(pupil2, task[3])
+pupil1.solve_homework(teacher)
+pupil2.solve_homework(teacher)
+teacher.show_homework()
+
+teacher.assign_homework(pupil1, task[4])
+teacher.assign_homework(pupil2, task[4])
+pupil1.solve_homework(teacher)
+pupil2.solve_homework(teacher)
+teacher.show_homework()
