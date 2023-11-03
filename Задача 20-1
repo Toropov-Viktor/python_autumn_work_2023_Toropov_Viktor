@@ -1,0 +1,87 @@
+class Cafe:
+    def __init__(self, menu):
+        self.menu = menu
+
+    def get_menu(self):
+        return self.menu
+
+
+class Coffee:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+    def get_name(self):
+        return self.name
+
+    def get_price(self):
+        return self.price
+
+    def __str__(self):
+        return f"{self.name} - ${self.price}"
+
+class Pastry:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+    def get_name(self):
+        return self.name
+
+    def get_price(self):
+        return self.price
+
+    def __str__(self):
+        return f"{self.name} - ${self.price}"
+
+class Customer:
+    def __init__(self, name, payment_method):
+        self.name = name
+        self.payment_method = payment_method
+        self.order = []
+
+    def add_to_order(self, item):
+        self.order.append(item)
+
+    def remove_from_order(self, item):
+        if item in self.order:
+            self.order.remove(item)
+
+    def view_order(self):
+        return "\n".join([str(item) for item in self.order])
+
+    def calculate_total(self):
+        total = 0.0
+        for item in self.order:
+            total += item.get_price()
+        return total
+
+    def make_payment(self, amount):
+        if self.payment_method == "cash":
+            print(f"Payment of ${amount:.2f} made in cash.")
+        elif self.payment_method == "card":
+            print(f"Payment of ${amount:.2f} made with a card.")
+        else:
+            print("Invalid payment method. Payment not processed.")
+
+
+menu = {"coffee": [{"name": "Cappuccino", "price": 3.5}, {"name": "Espresso", "price": 2.5}, {"name": "Latte", "price": 4.0}],
+    "pastry": [{"name": "Croissant", "price": 2.0}, {"name": "Muffin", "price": 2.5}, {"name": "Donut", "price": 1.5}]}
+
+cafe = Cafe(menu)
+
+customer = Customer("John", "card")
+
+coffee = Coffee("Latte", 4.0)
+pastry = Pastry("Croissant", 2.0)
+
+customer.add_to_order(coffee)
+customer.add_to_order(pastry)
+
+print(customer.view_order())
+
+total_amount = customer.calculate_total()
+
+print(f"Total amount: ${total_amount:.2f}")
+
+customer.make_payment(total_amount)
