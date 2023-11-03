@@ -1,0 +1,24 @@
+class InfiniteSequence:
+    def __init__(self):
+        self.current_number = 1
+        self.current_letter = 'A'
+
+    def generate_sequence(self):
+        while True:
+            yield self.current_number
+            yield self.current_letter
+
+            self.current_number += 1
+            if self.current_number > 26:
+                self.current_number = 1
+
+            self.current_letter = chr(ord(self.current_letter) + 1)
+
+            if self.current_letter > 'Z':
+                self.current_letter = 'A'
+
+sequence = InfiniteSequence()
+gen = sequence.generate_sequence()
+
+for i in range(100):
+    print(next(gen))
