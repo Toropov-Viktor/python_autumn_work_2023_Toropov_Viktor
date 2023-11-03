@@ -1,0 +1,21 @@
+import pandas as pd
+
+def calculate_sum(dataframe):
+    total_sum = 0
+
+    for column in dataframe.columns:
+        for value in dataframe[column]:
+            if isinstance(value, (int, float)):
+                total_sum += value
+
+    return total_sum
+
+data = {
+    'Column1': [1, 2, 3, 'A', 'B'],
+    'Column2': ['X', 10, 20, 30, 'Y'],
+    'Column3': [5, 'Z', 15, 25, 35]}
+
+df = pd.DataFrame(data)
+
+total = calculate_sum(df)
+print(f"Total sum: {total}")
