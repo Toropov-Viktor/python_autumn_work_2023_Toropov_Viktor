@@ -1,0 +1,9 @@
+CREATE TABLE Pupil (
+    pupil_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT,
+    email VARCHAR(50),
+    course VARCHAR(50),
+    progress FLOAT,
+    registration_date DATE
+);
