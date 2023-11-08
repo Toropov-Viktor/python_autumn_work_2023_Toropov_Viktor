@@ -1,0 +1,20 @@
+CREATE TABLE book (
+    book_id INT PRIMARY KEY,
+    book_title TEXT,
+    book_author TEXT,
+    publisher_id INT
+);
+
+INSERT INTO book (book_id, book_title, book_author, publisher_id)
+VALUES
+    (1, 'Book 1', 'Author 1', 1),
+    (2, 'Book 2', 'Author 1', 1),
+    (3, 'Book 3', 'Author 2', 2),
+    (4, 'Book 4', 'Author 3', 3),
+    (5, 'Book 5', 'Author 4', 4);
+
+SELECT * FROM book WHERE book_author = 'Author 1';
+SELECT * FROM book WHERE book_author = 'Author 2';
+
+SELECT * FROM book WHERE book_title = 'Book 3';
+SELECT * FROM book WHERE book_title = 'Book 4';
