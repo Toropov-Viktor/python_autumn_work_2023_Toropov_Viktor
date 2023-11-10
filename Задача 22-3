@@ -1,0 +1,11 @@
+import keyword
+
+def replace_keywords_with_kw(text):
+    keywords = keyword.kwlist
+    for kw in keywords:
+        text = text.replace(kw, '<kw>')
+    return text
+
+input_text = input("Введите текст: ")
+result = replace_keywords_with_kw(input_text)
+print(result)
