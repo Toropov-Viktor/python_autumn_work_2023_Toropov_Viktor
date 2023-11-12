@@ -1,0 +1,22 @@
+import psycopg2
+
+conn = psycopg2.connect(
+    dbname="postgres",
+    user="postgres",
+    password="",
+    host="127.0.0.1",
+    port="5432"
+)
+cur = con.cursor()
+
+cur.execute('SELECT id, title, author, price, published_date FROM book')
+rows = cur.fetchall()
+
+for row in rows:
+    print('id=', row[0])
+    print('title=', row[1])
+    print('author=', row[2])
+    print('price=', row[3])
+    print('published_date=', row[4], '\n')
+
+con.close()
