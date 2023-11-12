@@ -1,0 +1,12 @@
+from functools import cmp_to_key
+
+def largest_number(nums):
+    compare = lambda a, b: 1 if a + b < b + a else -1 if a + b > b + a else 0
+    nums = [str(num) for num in nums]
+    nums.sort(key=cmp_to_key(compare))
+    return str(int(''.join(nums)))
+
+input_list1 = [1, 21, 3]
+input_list2 = [9, 81, 25]
+print(largest_number(input_list1))
+print(largest_number(input_list2))
