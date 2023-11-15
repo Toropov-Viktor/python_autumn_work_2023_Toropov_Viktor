@@ -1,0 +1,10 @@
+CREATE VIEW MinBooksOnStock AS
+SELECT author_id, COUNT(*) AS num_books
+FROM book
+GROUP BY author_id
+HAVING COUNT(*) = (SELECT COUNT(*) FROM book GROUP BY author_id ORDER BY num_books LIMIT 1);
+
+SELECT a.author_id, a.author_name
+FROM author AS a
+JOIN MinBooksOnStock AS b ON
+a.author_id = b.author_id;
