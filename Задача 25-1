@@ -1,0 +1,26 @@
+from PyQt6.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton
+from PyQt6.QtCore import Qt
+
+class CounterWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.counter = 0
+
+        self.label = QLabel(self)
+        self.label.setText("0")
+        self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.setCentralWidget(self.label)
+
+        self.button = QPushButton("Нажми меня!", self)
+        self.button.clicked.connect(self.increment_counter)
+        self.button.setGeometry(50, 50, 200, 50)
+
+    def increment_counter(self):
+        self.counter += 1
+        self.label.setText(str(self.counter))
+
+if __name__ == "__main__":
+    app = QApplication([])
+    window = CounterWindow()
+    window.show()
+    app.exec()
