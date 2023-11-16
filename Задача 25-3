@@ -1,0 +1,9 @@
+def to_camel_case(string):
+    words = string.split()
+    words = [word.capitalize() for word in words]
+    camel_case = ''.join(words)
+    return camel_case
+
+print(to_camel_case("camel case word"))
+print(to_camel_case("hello world"))
+print(to_camel_case("this is a test"))
