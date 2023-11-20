@@ -1,0 +1,10 @@
+def create_darts_matrix(n):
+    matrix = [[0] * n for _ in range(n)]
+    for i in range(n):
+        for j in range(n):
+            matrix[i][j] = str(min(i, j, n-1-i, n-1-j) + 1)
+    for row in matrix:
+        print(''.join(row))
+
+n = int(input("Введите число n (от 1 до 18): "))
+create_darts_matrix(n)
