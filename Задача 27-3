@@ -1,0 +1,14 @@
+def count_elements(arr):
+    count = 0
+    for element in arr:
+        count += 1
+        if isinstance(element, list):
+            count += count_elements(element)
+    return count
+
+
+print(count_elements([]))
+print(count_elements([1,2,3]))
+print(count_elements(["x","y",["z"]]))
+print(count_elements([1,2,[3,4,[5]]]))
+print(count_elements([1,2,10,[12],[[14,15,16],24],[3,4,[5]]]))
