@@ -1,0 +1,27 @@
+def compare_strings(str1, str2):
+    if str1 == str2:
+        return True
+    if abs(len(str1) - len(str2)) > 1:
+        return False
+    diff_count = 0
+    i, j = 0, 0
+    while i < len(str1) and j < len(str2):
+        if str1[i] != str2[j]:
+            diff_count += 1
+            if diff_count > 1:
+                return False
+            if len(str1) > len(str2):
+                i += 1
+            elif len(str1) < len(str2):
+                j += 1
+        i += 1
+        j += 1
+    return True
+
+print(compare_strings('abc', 'abc'))
+print(compare_strings('abc', 'abcd'))
+print(compare_strings('bc', 'abc'))
+print(compare_strings('axc', 'abc'))
+print(compare_strings('abc', 'acd'))
+print(compare_strings('abc', 'a'))
+print(compare_strings('', '  '))
