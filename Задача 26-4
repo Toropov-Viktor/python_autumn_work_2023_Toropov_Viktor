@@ -1,0 +1,42 @@
+import sys
+from PyQt6.QtWidgets import QApplication, QMainWindow, QAction, QMenuBar
+
+class MyApplication(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        self.setWindowTitle("Графическое приложение")
+
+        menubar = self.menuBar()
+
+        description_action = QAction("Описание", self)
+        description_action.triggered.connect(self.description)
+
+        instruction_action = QAction("Инструкция", self)
+        instruction_action.triggered.connect(self.instruction)
+
+        help_action = QAction("Помощь", self)
+        help_action.triggered.connect(self.help)
+
+        file_menu = menubar.addMenu("Меню")
+
+file_menu.addAction(description_action)
+file_menu.addAction(instruction_action)
+file_menu.addAction(help_action)
+
+def description(self):
+    print("Вы выбрали пункт 'Описание'")
+
+def instruction(self):
+    print("Вы выбрали пункт 'Инструкция'")
+
+def help(self):
+    print("Вы выбрали пункт 'Помощь'")
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    window = MyApplication()
+
+    window.resize(400, 300)
+    window.show()
+    sys.exit(app.exec())
