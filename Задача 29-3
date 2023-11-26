@@ -1,0 +1,25 @@
+def is_isomorphic(word1, word2):
+    if len(word1) != len(word2):
+        return False
+
+    char_map = {}
+    mapped_chars = set()
+
+    for char1, char2 in zip(word1, word2):
+        if char1 in char_map:
+            if char_map[char1] != char2:
+                return False
+        else:
+            if char2 in mapped_chars:
+                return False
+            char_map[char1] = char2
+            mapped_chars.add(char2)
+
+    return True
+
+print(is_isomorphic("CBAABC", "DEFFED"))
+print(is_isomorphic("XXX", "YYY"))
+print(is_isomorphic("RAMBUNCTIOUSLY", "THERMODYNAMICS"))
+print(is_isomorphic("AB", "CC"))
+print(is_isomorphic("XXY", "XYY"))
+print(is_isomorphic("ABAB", "CD"))
