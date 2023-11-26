@@ -1,0 +1,32 @@
+def is_valid_move(matrix, row, col, visited):
+    rows, cols = len(matrix), len(matrix[0])
+    return 0 <= row < rows and 0 <= col < cols and matrix[row][col] >= 0 and not visited[row][col]
+
+def min_cost_path(matrix, start, end):
+    rows, cols = len(matrix), len(matrix[0])
+    visited = [[False for _ in range(cols)] for _ in range(rows)]
+    directions = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+    queue = [(start, 0)]
+
+    while queue:
+        (row, col), cost = queue.pop(0)
+        visited[row][col] = True
+
+        if (row, col) == end:
+            return cost + matrix[row][col]
+
+        for dr, dc in directions:
+            new_row, new_col = row + dr, col + dc
+            if is_valid_move(matrix, new_row, new_col, visited):
+                queue.append(((new_row, new_col), cost + matrix[row][col]))
+
+    return float('inf')
+
+matrix = [
+    [1, 2, 3],
+    [4, -1, 6],
+    [7, 8, 9]]
+start = (0, 0)
+end = (2, 2)
+result = min_cost_path(matrix, start, end)
+print(result)
