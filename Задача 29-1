@@ -1,0 +1,9 @@
+def find_unique_number(arr):
+    unique_num = 0
+    for num in arr:
+        unique_num ^= num
+    return unique_num
+
+numbers = [4, 4, 3, 4, 4]
+result = find_unique_number(numbers)
+print(result)
