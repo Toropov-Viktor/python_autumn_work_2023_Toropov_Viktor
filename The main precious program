@@ -1,0 +1,37 @@
+class Liver:
+    def __init__(self, kwr, left_lobe_size, parenchyma):
+        self.kwr = kwr
+        self.left_lobe_size = left_lobe_size
+        self.parenchyma = parenchyma
+
+    def check_kwr(self):
+        if self.kwr < 15:
+            return "Размер правой доли - в норме"
+        elif 15 <= self.kwr < 16:
+            return "Размер правой доли - пограничное значение"
+        else:
+            return "Увеличение правой доли"
+
+    def check_left_lobe_size(self):
+        if self.left_lobe_size < 16:
+            return "Размер левой доли - в норме"
+        else:
+            return "Увеличение левой доли"
+
+    def check_parenchyma(self):
+        if self.parenchyma == "изоэхогенная":
+            return "Эхогенность паренхимы - в норме"
+        elif self.parenchyma == "гиперэхогенная":
+            return "Стеатоз"
+        elif self.parenchyma == "гипоэхогенная":
+            return "Центрилобулярный синдром"
+
+kwr_value = float(input("Введите значение КВР: "))
+left_lobe_size_value = float(input("Сумму высоты и толщины левой доли: "))
+parenchyma_value = input("Введите характеристику эхогенности паренхимы: ")
+
+liver = Liver(kwr_value, left_lobe_size_value, parenchyma_value)
+
+print(liver.check_kwr())
+print(liver.check_left_lobe_size())
+print(liver.check_parenchyma())
